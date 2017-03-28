@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock title %}
+{% block content %} 
+	<div class="container">
+		<form class="form-signin" method="post"> {% csrf_token %}
+			<h2 class="form-signin-heading">Por favor inicie Sesion</h2>
+			<div  class="form-group">
+				<label for="username" class="sr-only" >Nombre de Usuario: </label>
+				<input type="text" class="form-control" name="username" placeholder="Usuario" required autofocus>		
+				<label for="password" class="sr-only" >Contraseña: </label>
+				<input type="password" class="form-control" name="password" placeholder="contraseña" required>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar</button>
+			</div>
+			{% if form.errors %}
+				<div class="alert alert-warning alert-dismissable">
+  				 	<button type="button" class="close" data-dismiss="alert">&times;</button>
+  					<strong>Contraseña o Usuario incorrecto</strong> 
+				</div>	
+			{% endif %}
+			
+	 </form>
+	</div>
+	 
+{% endblock content %} 

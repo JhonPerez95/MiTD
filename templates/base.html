@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	  <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+	<title>{% block title %} Inicio {% endblock  %}</title>
+</head>
+<body>
+	<div class="container">
+		{% block header %}
+			<h4>¡ TORNEOS DEPORTIVOS !</h4>
+		{% endblock  %}
+		{% block content %}	
+
+		{% endblock  %}
+		{% block footer %}
+			<h5>footer</h5>
+		{% endblock %}
+	</div>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src"{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
