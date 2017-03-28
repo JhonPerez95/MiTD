@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Torneos {% endblock  %}
+{% block content %}
+	{% for object_list in  object_list %}
+		<ul>
+			<li>{{object_list.descripcion|safe}}</li>
+		</ul>
+	{% empty %}
+		No ha Creado Torneos
+	{% endfor %}
+{% endblock  %}
