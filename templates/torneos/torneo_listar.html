@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block title %} Torneos {% endblock  %}
 {% block content %}
-	{% for object_list in  object_list %}
+	 <a href=" {% url 'torneos:torneo_crear' %}">Crear Torneo</a>
+	{% for torneo in object_list%}
 		<ul>
-			<li>{{object_list.descripcion|safe}}</li>
+			<li>{{torneo.descripcion}}</li>
+		</ul>	
+	{%empty%}
+		<ul>
+			<h4>Sin crear Torneos.</h4>
 		</ul>
-	{% empty %}
-		No ha Creado Torneos
 	{% endfor %}
-{% endblock  %} 
+{% endblock  %}  

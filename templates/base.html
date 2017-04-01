@@ -9,8 +9,16 @@
 	<title>{% block title %} Inicio {% endblock  %}</title>
 </head>
 <body>
+	 <div id="header">
+    	{% if user.is_authenticated %} <!-- Autentica si el usr esta logiado-->
+    		<p>Bienvenido, <b>{{user.username}}</b> | <a href=" {% url 'logout' %}">Salir</a> </b></p>	
+    	{% else %}
+    		<p>Bienvenido, por favor <a href=" {% url "login" %}">login</a></p>
+    	{% endif %}
+        <h1>MiTD </h1>
+    </div>
 	<div class="container">
-		{% block content %}	
+		{% block content %}					
 
 		{% endblock  %}
 	</div>
