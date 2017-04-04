@@ -3,7 +3,12 @@
 {% block content %}
 	<h2>Registrar Usuario</h2>
 	<form action="", method="post">{% csrf_token %}
-		{{form.as_p}}
+		<label >Nombre de Usuario: </label> {{form.username}} <br>	
+		<label >Nombre: </label> {{form.first_name}} <br>
+		<label >Apellidos: </label> {{form.last_name}} <br>
+		<label >Correo: </label> {{form.email}} <br>
+		<label >Contraseña: </label> {{form.password1}} <br>
+		<label >Confirmacion Contraseña: </label> {{form.password2}} <br>
 		<button type="submit">Guardar</button>
 	</form>
 {% endblock content %}

@@ -15,4 +15,3 @@ class TorneoForm(forms.ModelForm):
         widgets={
         	'descripcion': forms.TextInput(attrs={'class':'form-control'}),
         }
-        

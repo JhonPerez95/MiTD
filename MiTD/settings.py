@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'MiTD.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'django',
+        'NAME':'MiTD',
         'USER': 'root',
         'PASSWORD': '12345',
         'PORT': '3306',
