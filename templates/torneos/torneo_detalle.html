@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{% endblock title %}
+{% block content %}
+	<h1>{{object.descripcion}}</h1>
+	<h5><a href="{% url 'torneos:equipo_crear'%}">Agregar Equipo</a></h5>
+	{% for equipo in object.equipo_set.all %}
+            <li>{{equipo.nobre|safe}}</li>   
+        {% empty %} 
+            <li>Aun no hay contenido</li>
+        {% endfor %}
+{% endblock content %}

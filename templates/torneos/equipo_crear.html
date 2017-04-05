@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Crear Equipo{% endblock title %}
+{% block content %}
+	<form action="" method="POST">{% csrf_token %}
+		{{form.as_p}}
+		<div>
+			<button type="submit" class="btn btn-primary">Crear</button>
+		</div>
+	</form>
+{% endblock content %}

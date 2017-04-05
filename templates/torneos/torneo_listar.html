@@ -4,7 +4,7 @@
 	 <a href=" {% url 'torneos:torneo_crear' %}">Crear Torneo</a>
 	{% for torneo in object_list%}
 		<ul>
-			<li>{{torneo.descripcion}}</li>
+			<li><a href="{% url 'torneos:torneo_detalle' torneo.id %}">{{torneo.descripcion}}</a></li>
 		</ul>	
 	{%empty%}
 		<ul>

@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from colorful.fields import RGBColorField
+from django.core.urlresolvers import reverse, reverse_lazy
+
 
 class Torneo(models.Model):
     descripcion = models.CharField(max_length=200)
@@ -10,6 +12,7 @@ class Torneo(models.Model):
 
     def __str__(self):
         return (self.descripcion)
+
 
 class Equipo(models.Model):
     nombre = models.CharField(max_length=200)
