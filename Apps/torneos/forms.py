@@ -3,6 +3,7 @@ from .models import Torneo, Equipo
 from colorful.fields import RGBColorField
 
 class Torneo_Form(forms.ModelForm):
+
     class Meta:
         model = Torneo
         fields = [
@@ -18,6 +19,11 @@ class Torneo_Form(forms.ModelForm):
         }
 
 class Equipo_Form(forms.ModelForm):
+
+    def __init__(self, request, *args, **kwargs):
+        super(Equipo_Form, self).__init__(*args, **kwargs)
+        self.fields['torneo'].queryset =  Torneo.objects.filter(user=request.user)
+
     class Meta:
         model = Equipo
         fields =[
@@ -31,9 +37,10 @@ class Equipo_Form(forms.ModelForm):
             'color':'Color Uniforme',
             'torneo':'Participar Torneo',
         }
+
+
         widgets={
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
             'color': RGBColorField(),
-            'torneo': forms.Select(attrs={'class':'form-control'}),
         }
-        
+

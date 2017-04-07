@@ -25,15 +25,21 @@ class Torneo_ListView(ListView):
 		return Torneo.objects.filter(user=self.request.user)
 
 class Torneo_DetailView(DetailView):
-    model = Torneo
-    template_name = "torneos/torneo_detalle.html"
+	model = Torneo
+	template_name = "torneos/torneo_detalle.html"
+
 
 class Equipo_CreateView(CreateView):
-    model = Equipo
-    template_name = "torneos/equipo_crear.html"
-    form_class = Equipo_Form
-    success_url = reverse_lazy('torneos:equipo_crear')
+	model = Equipo
+	template_name = "torneos/equipo_crear.html"
+	form_class = Equipo_Form
+	success_url = reverse_lazy('torneos:equipo_crear')
 
-    def form_valid(self, form_class):
+	def get_form_kwargs(self):
+		kwargs = super(Equipo_CreateView, self).get_form_kwargs()
+		kwargs.update({'request': self.request})
+		return kwargs
+
+	def form_valid(self, form_class):
 		form_class.instance.user_id = self.request.user.id
 		return super(Equipo_CreateView, self).form_valid(form_class)
